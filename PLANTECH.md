@@ -104,8 +104,8 @@
 ```
 
 ## 🔥 Livrables concrets en 48h :
-[x] Frontend simple, clair, utilisable
-[x] Backend API REST qui répond correctement
-[x] Traduction basique entre 2-3 langues max
-[x] Voix générée qui lit la traduction
-[x] Présentation fonctionnelle pour AbiHack
+- [x] Frontend simple, clair, utilisable
+- [x] Backend API REST qui répond correctement
+- [x] Traduction basique entre 2-3 langues max
+- [x] Voix générée qui lit la traduction
+- [x] Présentation fonctionnelle pour AbiHack
