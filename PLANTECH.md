@@ -40,8 +40,8 @@
 
 | Dev | Mission principale                            | Techno                            |
 | --- | --------------------------------------------- | --------------------------------- |
-| 1   | Backend API traduction / TTS                  | Node.js, Express, MongoDB         |
-| 2   | Backend intégration TTS / Data / Optimisation | Node.js, TTS API (Google / Azure) |
+| 1   | Backend API traduction / TTS                  | Flask, Firebase, TensorFlow       |
+| 2   | Backend intégration TTS / Data / Optimisation | Flask, TTS API (GCP) |
 | 3   | Frontend UI / Appel API                       | React / Vue / Tailwind CSS        |
 | 4   | Frontend UX / Voix / Tests                    | React / Vue / Tailwind CSS        |
 
