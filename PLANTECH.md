@@ -88,7 +88,7 @@
 
 ## 📊 Base de Données Exemples (JSON / MongoDB) :
 
-````json
+```json
   {
     "fr": {
       "Bonjour": "Akwaba",
