@@ -1,9 +1,9 @@
 # 🚀Plan Technique MVP Kumajala 48h / 4 Développeurs
 
 ## 🎯 Objectif du MVP :
-👉 Traduire texte court (phrase) depuis le français → une langue locale (ex : bété, baoulé, mooré)
-👉 Restituer en texte + voix générée synthétique (TTS).
-👉 Interface Web simple et fonctionnelle.
+- 👉 Traduire texte court (phrase) depuis le français → une langue locale (ex : bété, baoulé, mooré)
+- 👉 Restituer en texte + voix générée synthétique (TTS).
+- 👉 Interface Web simple et fonctionnelle.
 
 ## 📅 Planning des 48h en Sprint Agile
 
