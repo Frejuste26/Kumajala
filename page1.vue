@@ -44,9 +44,8 @@ export default {
       alert("Changement de langue non implémenté pour l'instant.")
     },
     getStarted() {
-      console.log('Bouton "Get Started" cliqué ! Émission de l\'événement "get-started".')
-      this.$emit('get-started') // Émet un événement personnalisé nommé 'get-started'
-    },
+      this.$router.push('/page2') // Redirige vers la page 2
+    }
   },
 }
 </script>
