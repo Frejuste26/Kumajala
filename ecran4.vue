@@ -1,0 +1,258 @@
+<template>
+  <div
+    class="relative flex size-full min-h-screen flex-col bg-white justify-between group/design-root overflow-x-hidden"
+    style='font-family: "Spline Sans", "Noto Sans", sans-serif;'
+  >
+    <div>
+      <div class="flex items-center bg-white p-4 pb-2 justify-between">
+        <button @click="goBack" class="text-[#111418] flex size-12 shrink-0 items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+            <path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"></path>
+          </svg>
+        </button>
+        <h2 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Translate</h2>
+      </div>
+
+      <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+        <label class="flex flex-col min-w-40 flex-1">
+          <textarea
+            v-model="inputText"
+            @input="autoTranslate"
+            placeholder="Enter text to translate..."
+            class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111418] focus:outline-0 focus:ring-0 border-none bg-[#f0f2f5] focus:border-none min-h-36 placeholder:text-[#60758a] p-4 text-base font-normal leading-normal"
+          ></textarea>
+        </label>
+      </div>
+
+      <h3 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Translation</h3>
+      <p class="text-[#111418] text-base font-normal leading-normal pb-3 pt-1 px-4">{{ translatedText }}</p>
+
+      <div class="@container">
+        <div class="gap-2 px-4 grid-cols-[repeat(auto-fit, minmax(80px,_1fr))] grid">
+          <button @click="speakNative" class="flex flex-col items-center gap-2 bg-white py-2.5 text-center">
+            <div class="rounded-full bg-[#f0f2f5] p-2.5">
+              <div class="text-[#111418]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M155.51,24.81a8,8,0,0,0-8.42.88L77.25,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H77.25l69.84,54.31A8,8,0,0,0,160,224V32A8,8,0,0,0,155.51,24.81ZM32,96H72v64H32ZM144,207.64,88,164.09V91.91l56-43.55Zm54-106.08a40,40,0,0,1,0,52.88,8,8,0,0,1-12-10.58,24,24,0,0,0,0-31.72,8,8,0,0,1,12-10.58ZM248,128a79.9,79.9,0,0,1-20.37,53.34,8,8,0,0,1-11.92-10.67,64,64,0,0,0,0-85.33,8,8,0,1,1,11.92-10.67A79.83,79.83,0,0,1,248,128Z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <p class="text-[#111418] text-sm font-medium leading-normal">Native</p>
+          </button>
+          <button @click="speakSynthetic" class="flex flex-col items-center gap-2 bg-white py-2.5 text-center">
+            <div class="rounded-full bg-[#f0f2f5] p-2.5">
+              <div class="text-[#111418]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M155.51,24.81a8,8,0,0,0-8.42.88L77.25,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H77.25l69.84,54.31A8,8,0,0,0,160,224V32A8,8,0,0,0,155.51,24.81ZM32,96H72v64H32ZM144,207.64,88,164.09V91.91l56-43.55Zm54-106.08a40,40,0,0,1,0,52.88,8,8,0,0,1-12-10.58,24,24,0,0,0,0-31.72,8,8,0,0,1,12-10.58ZM248,128a79.9,79.9,0,0,1-20.37,53.34,8,8,0,0,1-11.92-10.67,64,64,0,0,0,0-85.33,8,8,0,1,1,11.92-10.67A79.83,79.83,0,0,1,248,128Z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <p class="text-[#111418] text-sm font-medium leading-normal">Synthetic</p>
+          </button>
+          <button @click="copyTranslatedText" class="flex flex-col items-center gap-2 bg-white py-2.5 text-center">
+            <div class="rounded-full bg-[#f0f2f5] p-2.5">
+              <div class="text-[#111418]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <p class="text-[#111418] text-sm font-medium leading-normal">Copy</p>
+          </button>
+          <button @click="shareTranslatedText" class="flex flex-col items-center gap-2 bg-white py-2.5 text-center">
+            <div class="rounded-full bg-[#f0f2f5] p-2.5">
+              <div class="text-[#111418]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M229.66,109.66l-48,48a8,8,0,0,1-11.32-11.32L204.69,112H165a88,88,0,0,0-85.23,66,8,8,0,0,1-15.5-4A103.94,103.94,0,0,1,165,96h39.71L170.34,61.66a8,8,0,0,1,11.32-11.32l48,48A8,8,0,0,1,229.66,109.66ZM192,208H40V88a8,8,0,0,0-16,0V208a16,16,0,0,0,16,16H192a8,8,0,0,0,0-16Z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <p class="text-[#111418] text-sm font-medium leading-normal">Share</p>
+          </button>
+        </div>
+      </div>
+
+      <h3 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Feedback</h3>
+      <div class="flex flex-wrap gap-4 px-4 py-2 justify-between">
+        <button @click="giveThumbsUp" class="flex items-center justify-center gap-2 px-3 py-2">
+          <div class="text-[#60758a]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+              <path
+                d="M234,80.12A24,24,0,0,0,216,72H160V56a40,40,0,0,0-40-40,8,8,0,0,0-7.16,4.42L75.06,96H32a16,16,0,0,0-16,16v88a16,16,0,0,0,16,16H204a24,24,0,0,0,23.82-21l12-96A24,24,0,0,0,234,80.12ZM32,112H72v88H32ZM223.94,97l-12,96a8,8,0,0,1-7.94,7H88V105.89l36.71-73.43A24,24,0,0,1,144,56V80a8,8,0,0,0,8,8h64a8,8,0,0,1,7.94,9Z"
+              ></path>
+            </svg>
+          </div>
+          <p class="text-[#60758a] text-[13px] font-bold leading-normal tracking-[0.015em]">{{ thumbsUpCount }}</p>
+        </button>
+        <button @click="giveThumbsDown" class="flex items-center justify-center gap-2 px-3 py-2">
+          <div class="text-[#60758a]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+              <path
+                d="M239.82,157l-12-96A24,24,0,0,0,204,40H32A16,16,0,0,0,16,56v88a16,16,0,0,0,16,16H75.06l37.78,75.58A8,8,0,0,0,120,240a40,40,0,0,0,40-40V184h56a24,24,0,0,0,23.82-27ZM72,144H32V56H72Zm150,21.29a7.88,7.88,0,0,1-6,2.71H152a8,8,0,0,0-8,8v24a24,24,0,0,1-19.29,23.54L88,150.11V56H204a8,8,0,0,1,7.94,7l12,96A7.87,7.87,0,0,1,222,165.29Z"
+              ></path>
+            </svg>
+          </div>
+          <p class="text-[#60758a] text-[13px] font-bold leading-normal tracking-[0.015em]">{{ thumbsDownCount }}</p>
+        </button>
+        <button @click="reportTranslation" class="flex items-center justify-center gap-2 px-3 py-2">
+          <div class="text-[#60758a]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+              <path
+                d="M34.76,42A8,8,0,0,0,32,48V216a8,8,0,0,0,16,0V171.77c26.79-21.16,49.87-9.75,76.45,3.41,16.4,8.11,34.06,16.85,53,16.85,13.93,0,28.54-4.75,43.82-18a8,8,0,0,0,2.76-6V48A8,8,0,0,0,210.76,42c-28,24.23-51.72,12.49-79.21-1.12C103.07,26.76,70.78,10.79,34.76,42ZM208,164.25c-26.79,21.16-49.87,9.74-76.45-3.41-25-12.35-52.81-26.13-83.55-8.4V51.79c26.79-21.16,49.87-9.75,76.45,3.4,25,12.35,52.82,26.13,83.55,8.4Z"
+              ></path>
+            </svg>
+          </div>
+          <p class="text-[#60758a] text-[13px] font-bold leading-normal tracking-[0.015em]">Report</p>
+        </button>
+      </div>
+    </div>
+
+    <div>
+      <div class="flex gap-2 border-t border-[#f0f2f5] bg-white px-4 pb-3 pt-2">
+        <button @click="goToHome" class="just flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-[#111418]">
+          <div class="text-[#111418] flex h-8 items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+              <path
+                d="M224,115.55V208a16,16,0,0,1-16,16H168a16,16,0,0,1-16-16V168a8,8,0,0,0-8-8H112a8,8,0,0,0-8,8v40a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V115.55a16,16,0,0,1,5.17-11.78l80-75.48.11-.11a16,16,0,0,1,21.53,0,1.14,1.14,0,0,0,.11.11l80,75.48A16,16,0,0,1,224,115.55Z"
+              ></path>
+            </svg>
+          </div>
+          <p class="text-[#111418] text-xs font-medium leading-normal tracking-[0.015em]">Home</p>
+        </button>
+        <button @click="goToFavorites" class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#60758a]">
+          <div class="text-[#60758a] flex h-8 items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+              <path
+                d="M184,32H72A16,16,0,0,0,56,48V224a8,8,0,0,0,12.24,6.78L128,193.43l59.77,37.35A8,8,0,0,0,200,224V48A16,16,0,0,0,184,32Zm0,16V161.57l-51.77-32.35a8,8,0,0,0-8.48,0L72,161.56V48ZM132.23,177.22a8,8,0,0,0-8.48,0L72,209.57V180.43l56-35,56,35v29.14Z"
+              ></path>
+            </svg>
+          </div>
+          <p class="text-[#60758a] text-xs font-medium leading-normal tracking-[0.015em]">Favorites</p>
+        </button>
+        <button @click="goToSettings" class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#60758a]">
+          <div class="text-[#60758a] flex h-8 items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+              <path
+                d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Zm88-29.84q.06-2.16,0-4.32l14.92-18.64a8,8,0,0,0,1.48-7.06,107.21,107.21,0,0,0-10.88-26.25,8,8,0,0,0-6-3.93l-23.72-2.64q-1.48-1.56-3-3L186,40.54a8,8,0,0,0-3.94-6,107.71,107.71,0,0,0-26.25-10.87,8,8,0,0,0-7.06,1.49L130.16,40Q128,40,125.84,40L107.2,25.11a8,8,0,0,0-7.06-1.48A107.6,107.6,0,0,0,73.89,34.51a8,8,0,0,0-3.93,6L67.32,64.27q-1.56,1.49-3,3L40.54,70a8,8,0,0,0-6,3.94,107.71,107.71,0,0,0-10.87,26.25,8,8,0,0,0,1.49,7.06L40,125.84Q40,128,40,130.16L25.11,148.8a8,8,0,0,0-1.48,7.06,107.21,107.21,0,0,0,10.88,26.25,8,8,0,0,0,6,3.93l23.72,2.64q1.49,1.56,3,3L70,215.46a8,8,0,0,0,3.94,6,107.71,107.71,0,0,0,26.25,10.87,8,8,0,0,0,7.06-1.49L125.84,216q2.16.06,4.32,0l18.64,14.92a8,8,0,0,0,7.06,1.48,107.21,107.21,0,0,0,26.25-10.88,8,8,0,0,0,3.93-6l2.64-23.72q1.56-1.48,3-3L215.46,186a8,8,0,0,0,6-3.94,107.71,107.71,0,0,0,10.87-26.25,8,8,0,0,0-1.49-7.06Zm-16.1-6.5a73.93,73.93,0,0,1,0,8.68,8,8,0,0,0,1.74,5.48l14.19,17.73a91.57,91.57,0,0,1-6.23,15L187,173.11a8,8,0,0,0-5.1,2.64,74.11,74.11,0,0,1-6.14,6.14,8,8,0,0,0-2.64,5.1l-2.51,22.58a91.32,91.32,0,0,1-15,6.23l-17.74-14.19a8,8,0,0,0-5-1.75h-.48a73.93,73.93,0,0,1-8.68,0,8,8,0,0,0-5.48,1.74L100.45,215.8a91.57,91.57,0,0,1-15-6.23L82.89,187a8,8,0,0,0-2.64-5.1,74.11,74.11,0,0,1-6.14-6.14,8,8,0,0,0-5.1-2.64L46.43,170.6a91.32,91.32,0,0,1-6.23-15l14.19-17.74a8,8,0,0,0,1.74-5.48,73.93,73.93,0,0,1,0-8.68,8,8,0,0,0-1.74-5.48L40.2,100.45a91.57,91.57,0,0,1,6.23-15L69,82.89a8,8,0,0,0,5.1-2.64,74.11,74.11,0,0,1,6.14-6.14A8,8,0,0,0,82.89,69L85.4,46.43a91.32,91.32,0,0,1,15-6.23l17.74,14.19a8,8,0,0,0,5.48,1.74,73.93,73.93,0,0,1,8.68,0,8,8,0,0,0,5.48-1.74L155.55,40.2a91.57,91.57,0,0,1,15,6.23L173.11,69a8,8,0,0,0,2.64,5.1,74.11,74.11,0,0,1,6.14,6.14,8,8,0,0,0,5.1,2.64l22.58,2.51a91.32,91.32,0,0,1,6.23,15l-14.19,17.74A8,8,0,0,0,199.87,123.66Z"
+              ></path>
+            </svg>
+          </div>
+          <p class="text-[#60758a] text-xs font-medium leading-normal tracking-[0.015em]">Settings</p>
+        </button>
+      </div>
+      <div class="h-5 bg-white"></div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'TranslateOutputPage', // Un nouveau nom de composant
+  data() {
+    return {
+      inputText: '', // Pour la zone de texte d'entrée
+      translatedText: 'Hola, ¿cómo estás?', // La traduction pré-remplie
+      thumbsUpCount: 12, // Compteur pour les likes
+      thumbsDownCount: 2, // Compteur pour les dislikes
+      translateTimeout: null, // Pour le debounce
+    };
+  },
+  methods: {
+    goBack() {
+      console.log('Action: Go back');
+      // Implémentez la logique de navigation ici, par exemple: this.$router.back();
+    },
+    autoTranslate() {
+      // Simule une traduction avec un debounce
+      clearTimeout(this.translateTimeout);
+      this.translateTimeout = setTimeout(() => {
+        if (this.inputText.length > 0) {
+          // Dans une application réelle, vous feriez un appel API ici
+          this.translatedText = `[Traduction de "${this.inputText}"]`;
+        } else {
+          this.translatedText = 'Hola, ¿cómo estás?'; // Réinitialise au texte par défaut si l'entrée est vide
+        }
+      }, 500); // Délai de 500ms
+    },
+    speakNative() {
+      if (this.translatedText) {
+        alert(`Speaking Native: "${this.translatedText}"`);
+        console.log('Speak Native translation');
+      }
+    },
+    speakSynthetic() {
+      if (this.translatedText) {
+        alert(`Speaking Synthetic: "${this.translatedText}"`);
+        console.log('Speak Synthetic translation');
+      }
+    },
+    copyTranslatedText() {
+      if (this.translatedText) {
+        navigator.clipboard.writeText(this.translatedText)
+          .then(() => alert('Translation copied!'))
+          .catch(err => console.error('Failed to copy text: ', err));
+      }
+    },
+    shareTranslatedText() {
+      if (this.translatedText && navigator.share) {
+        navigator.share({
+          title: 'KUMANJALA Translate',
+          text: this.translatedText,
+        }).then(() => console.log('Shared successfully'))
+          .catch((error) => console.error('Error sharing', error));
+      } else {
+        alert('Share functionality not available or no text to share.');
+        console.log('Share translation');
+      }
+    },
+    giveThumbsUp() {
+      this.thumbsUpCount++;
+      console.log('Thumbs Up given!');
+    },
+    giveThumbsDown() {
+      this.thumbsDownCount++;
+      console.log('Thumbs Down given!');
+    },
+    reportTranslation() {
+      alert('Translation reported!');
+      console.log('Report translation');
+    },
+    goToHome() {
+      console.log('Navigate to Home');
+      // this.$router.push('/');
+    },
+    goToFavorites() {
+      console.log('Navigate to Favorites');
+      // this.$router.push('/favorites');
+    },
+    goToSettings() {
+      console.log('Navigate to Settings');
+      // this.$router.push('/settings');
+    },
+  },
+  mounted() {
+    // Peut-être initialiser la traduction ou d'autres choses au montage si nécessaire
+  }
+};
+</script>
+
+<style scoped>
+/*
+  Ce composant utilise principalement Tailwind CSS via les classes directement dans le HTML.
+  Par conséquent, la section <style scoped> est moins nécessaire pour le style de base.
+
+  Cependant, si vous avez des styles très spécifiques qui ne sont pas facilement
+  réalisables avec Tailwind ou des surcharges pour ce composant, ils iraient ici.
+
+  Par exemple, si vous vouliez un effet d'ombre très précis ou une animation
+  qui n'est pas gérée par les classes Tailwind par défaut.
+*/
+</style>
