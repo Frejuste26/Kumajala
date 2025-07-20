@@ -1,0 +1,526 @@
+@import './base.css';
+
+/* ===== UTILITAIRES DE COULEURS ===== */
+.text-primary { color: var(--cl-primary); }
+.text-secondary { color: var(--cl-secondary); }
+.text-tertiary { color: var(--cl-tertiary); }
+.text-white { color: var(--cl-white); }
+.text-black { color: var(--cl-black); }
+.text-success { color: var(--cl-success); }
+.text-warning { color: var(--cl-warning); }
+.text-error { color: var(--cl-error); }
+.text-info { color: var(--cl-info); }
+
+.bg-primary { background-color: var(--cl-primary); }
+.bg-secondary { background-color: var(--cl-secondary); }
+.bg-tertiary { background-color: var(--cl-tertiary); }
+.bg-white { background-color: var(--cl-white); }
+.bg-black { background-color: var(--cl-black); }
+.bg-success { background-color: var(--cl-success); }
+.bg-warning { background-color: var(--cl-warning); }
+.bg-error { background-color: var(--cl-error); }
+.bg-info { background-color: var(--cl-info); }
+
+/* ===== UTILITAIRES DE TYPOGRAPHIE ===== */
+.text-xs { font-size: var(--fs-xs); }
+.text-sm { font-size: var(--fs-sm); }
+.text-base { font-size: var(--fs-base); }
+.text-lg { font-size: var(--fs-lg); }
+.text-xl { font-size: var(--fs-xl); }
+.text-2xl { font-size: var(--fs-2xl); }
+.text-3xl { font-size: var(--fs-3xl); }
+.text-4xl { font-size: var(--fs-4xl); }
+.text-5xl { font-size: var(--fs-5xl); }
+
+.font-thin { font-weight: var(--fw-thin); }
+.font-light { font-weight: var(--fw-light); }
+.font-normal { font-weight: var(--fw-normal); }
+.font-medium { font-weight: var(--fw-medium); }
+.font-semibold { font-weight: var(--fw-semibold); }
+.font-bold { font-weight: var(--fw-bold); }
+.font-extrabold { font-weight: var(--fw-extrabold); }
+.font-black { font-weight: var(--fw-black); }
+
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+/* ===== UTILITAIRES D'ESPACEMENT ===== */
+.m-0 { margin: var(--space-0); }
+.m-1 { margin: var(--space-1); }
+.m-2 { margin: var(--space-2); }
+.m-3 { margin: var(--space-3); }
+.m-4 { margin: var(--space-4); }
+.m-5 { margin: var(--space-5); }
+.m-6 { margin: var(--space-6); }
+.m-8 { margin: var(--space-8); }
+.m-10 { margin: var(--space-10); }
+.m-12 { margin: var(--space-12); }
+.m-16 { margin: var(--space-16); }
+.m-20 { margin: var(--space-20); }
+.m-24 { margin: var(--space-24); }
+
+.p-0 { padding: var(--space-0); }
+.p-1 { padding: var(--space-1); }
+.p-2 { padding: var(--space-2); }
+.p-3 { padding: var(--space-3); }
+.p-4 { padding: var(--space-4); }
+.p-5 { padding: var(--space-5); }
+.p-6 { padding: var(--space-6); }
+.p-8 { padding: var(--space-8); }
+.p-10 { padding: var(--space-10); }
+.p-12 { padding: var(--space-12); }
+.p-16 { padding: var(--space-16); }
+.p-20 { padding: var(--space-20); }
+.p-24 { padding: var(--space-24); }
+
+/* Marges spécifiques */
+.mt-auto { margin-top: auto; }
+.mb-auto { margin-bottom: auto; }
+.ml-auto { margin-left: auto; }
+.mr-auto { margin-right: auto; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+/* ===== UTILITAIRES DE LAYOUT ===== */
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+.grid { display: grid; }
+.block { display: block; }
+.inline-block { display: inline-block; }
+.inline { display: inline; }
+.hidden { display: none; }
+
+.flex-col { flex-direction: column; }
+.flex-row { flex-direction: row; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-nowrap { flex-wrap: nowrap; }
+
+.items-start { align-items: flex-start; }
+.items-center { align-items: center; }
+.items-end { align-items: flex-end; }
+.items-stretch { align-items: stretch; }
+
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+.justify-evenly { justify-content: space-evenly; }
+
+.flex-1 { flex: 1 1 0%; }
+.flex-auto { flex: 1 1 auto; }
+.flex-initial { flex: 0 1 auto; }
+.flex-none { flex: none; }
+
+/* ===== UTILITAIRES DE BORDURES ===== */
+.rounded-none { border-radius: var(--radius-none); }
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded { border-radius: var(--radius-base); }
+.rounded-md { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-xl { border-radius: var(--radius-xl); }
+.rounded-2xl { border-radius: var(--radius-2xl); }
+.rounded-full { border-radius: var(--radius-full); }
+
+/* ===== UTILITAIRES D'OMBRES ===== */
+.shadow-none { box-shadow: none; }
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow { box-shadow: var(--shadow-base); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-xl { box-shadow: var(--shadow-xl); }
+
+/* ===== COMPOSANTS DE BASE ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  line-height: 1.5;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.btn-primary {
+  background-color: var(--cl-primary);
+  color: var(--cl-white);
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: var(--cl-secondary);
+  color: var(--cl-white);
+}
+
+.btn-secondary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  border: 2px solid var(--cl-primary);
+  color: var(--cl-primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--cl-primary);
+  color: var(--cl-white);
+}
+
+/* Tailles de boutons */
+.btn-sm {
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--fs-sm);
+}
+
+.btn-lg {
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--fs-lg);
+}
+
+/* ===== CARDS ===== */
+.card {
+  background-color: var(--cl-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-base);
+  overflow: hidden;
+  transition: var(--transition-color); /* Utilise la transition de couleur */
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.card-header {
+  padding: var(--space-6);
+  border-bottom: 1px solid var(--cl-gray-200);
+  transition: var(--transition-color);
+}
+
+.card-body {
+  padding: var(--space-6);
+  transition: var(--transition-color);
+}
+
+.card-footer {
+  padding: var(--space-6);
+  border-top: 1px solid var(--cl-gray-200);
+  background-color: var(--cl-gray-100);
+  transition: var(--transition-color);
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+/* ===== UTILITAIRES RESPONSIVE ===== */
+@media (min-width: 640px) {
+  .container { max-width: 640px; padding-left: var(--space-6); padding-right: var(--space-6); }
+  .sm\:text-sm { font-size: var(--fs-sm); }
+  .sm\:text-base { font-size: var(--fs-base); }
+  .sm\:text-lg { font-size: var(--fs-lg); }
+  .sm\:flex { display: flex; }
+  .sm\:hidden { display: none; }
+  .sm\:block { display: block; }
+  .sm\:flex-row { flex-direction: row; } /* Ajouté */
+  .sm\:flex-col { flex-direction: column; } /* Ajouté */
+}
+
+@media (min-width: 768px) {
+  .container { max-width: 768px; }
+  .md\:text-sm { font-size: var(--fs-sm); }
+  .md\:text-base { font-size: var(--fs-base); }
+  .md\:text-lg { font-size: var(--fs-lg); }
+  .md\:text-xl { font-size: var(--fs-xl); }
+  .md\:flex { display: flex; }
+  .md\:hidden { display: none; }
+  .md\:block { display: block; }
+  .md\:flex-row { flex-direction: row; }
+  .md\:flex-col { flex-direction: column; }
+}
+
+@media (min-width: 1024px) {
+  .container { max-width: 1024px; }
+  .lg\:text-base { font-size: var(--fs-base); }
+  .lg\:text-lg { font-size: var(--fs-lg); }
+  .lg\:text-xl { font-size: var(--fs-xl); }
+  .lg\:text-2xl { font-size: var(--fs-2xl); }
+  .lg\:flex { display: flex; }
+  .lg\:hidden { display: none; }
+  .lg\:block { display: block; }
+}
+
+@media (min-width: 1280px) {
+  .container { max-width: 1280px; }
+  .xl\:text-lg { font-size: var(--fs-lg); }
+  .xl\:text-xl { font-size: var(--fs-xl); }
+  .xl\:text-2xl { font-size: var(--fs-2xl); }
+  .xl\:text-3xl { font-size: var(--fs-3xl); }
+}
+
+/* ===== UTILITAIRES GÉNÉRAUX ===== */
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+.min-h-screen { min-height: 100vh; }
+
+.overflow-hidden { overflow: hidden; }
+.overflow-auto { overflow: auto; }
+
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed { position: fixed; }
+.sticky { position: sticky; }
+
+.top-0 { top: 0; }
+.right-0 { right: 0; }
+.bottom-0 { bottom: 0; }
+.left-0 { left: 0; }
+
+.z-10 { z-index: 10; }
+.z-20 { z-index: 20; }
+.z-30 { z-index: 30; }
+.z-40 { z-index: 40; }
+.z-50 { z-index: 50; }
+
+.opacity-0 { opacity: 0; }
+.opacity-25 { opacity: 0.25; }
+.opacity-50 { opacity: 0.5; }
+.opacity-75 { opacity: 0.75; }
+.opacity-100 { opacity: 1; }
+
+.transition { transition: all var(--transition-base); }
+.transition-fast { transition: all var(--transition-fast); }
+.transition-slow { transition: all var(--transition-slow); }
+
+/* ===== RESPONSIVE BASE ===== */
+@media (max-width: 767px) {
+  body {
+    font-size: var(--fs-sm);
+  }
+
+  .container {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+}
+
+/* ===== DARK MODE STYLES (appliqués lorsque la classe 'dark-mode' est présente sur l'élément html) ===== */
+html.dark-mode {
+  /* Les variables de couleurs sont déjà surchargées dans :root.dark-mode */
+  /* Ici, nous ciblons des éléments spécifiques qui n'utilisent pas directement les variables utilitaires */
+  /* ou qui nécessitent des ajustements visuels en mode sombre. */
+
+  /* Général */
+  color: var(--cl-black); /* Couleur de texte par défaut en mode sombre */
+}
+
+html.dark-mode body {
+  background-color: var(--cl-white); /* Le nouveau "blanc" du mode sombre */
+  color: var(--cl-black); /* Le nouveau "noir" du mode sombre */
+}
+
+html.dark-mode .bg-gray-100 {
+  background-color: var(--cl-gray-100); /* Utilise la variable dark-mode */
+}
+
+html.dark-mode .bg-gray-50 {
+  background-color: var(--cl-gray-50); /* Utilise la variable dark-mode */
+}
+
+html.dark-mode .text-gray-700 {
+  color: var(--cl-gray-700); /* Utilise la variable dark-mode */
+}
+
+html.dark-mode .text-gray-800 {
+  color: var(--cl-gray-800); /* Utilise la variable dark-mode */
+}
+
+html.dark-mode .text-gray-900 {
+  color: var(--cl-gray-900); /* Utilise la variable dark-mode */
+}
+
+/* Composants */
+html.dark-mode .card {
+  background-color: var(--cl-gray-100); /* Fond de carte sombre */
+  box-shadow: var(--shadow-lg); /* Ombre plus prononcée */
+  border: 1px solid var(--cl-gray-200); /* Bordure subtile */
+}
+
+html.dark-mode .card-header {
+  border-bottom-color: var(--cl-gray-200);
+}
+
+html.dark-mode .card-footer {
+  border-top-color: var(--cl-gray-200);
+  background-color: var(--cl-gray-50);
+}
+
+html.dark-mode textarea,
+html.dark-mode select {
+  background-color: var(--cl-gray-50);
+  color: var(--cl-black);
+  border-color: var(--cl-gray-300);
+  transition: var(--transition-color);
+}
+
+html.dark-mode textarea::placeholder {
+  color: var(--cl-gray-500);
+}
+
+html.dark-mode .select-label,
+html.dark-mode .screen-title {
+  color: var(--cl-gray-800);
+}
+
+html.dark-mode .translated-result {
+  background-color: var(--cl-gray-50);
+  border-color: var(--cl-gray-200);
+  color: var(--cl-gray-800);
+  transition: var(--transition-color);
+}
+
+html.dark-mode .placeholder {
+  color: var(--cl-gray-500);
+}
+
+/* Header (TopBar) */
+html.dark-mode .enhanced-header.variant-default {
+  background-color: var(--cl-gray-100);
+  border-bottom-color: var(--cl-gray-200);
+}
+
+html.dark-mode .enhanced-header.variant-blur {
+  background-color: rgba(var(--cl-gray-100-rgb), 0.8); /* Utiliser RGB pour l'opacité */
+  backdrop-filter: blur(10px);
+  border-bottom-color: var(--cl-gray-200);
+}
+
+html.dark-mode .nav-link {
+  color: var(--cl-gray-700);
+}
+
+html.dark-mode .nav-link:hover {
+  color: var(--cl-primary); /* La couleur primaire du dark mode */
+}
+
+html.dark-mode .nav-link.is-active {
+  color: var(--cl-primary);
+}
+
+html.dark-mode .active-indicator {
+  background-color: var(--cl-primary);
+}
+
+html.dark-mode .action-button {
+  color: var(--cl-gray-700);
+}
+
+html.dark-mode .action-button:hover {
+  background-color: var(--cl-gray-200);
+  color: var(--cl-primary);
+}
+
+html.dark-mode .logo-button:hover {
+  background-color: var(--cl-gray-200);
+}
+
+html.dark-mode .hamburger-line {
+  background-color: var(--cl-gray-700);
+}
+
+html.dark-mode .mobile-nav {
+  background-color: var(--cl-gray-100);
+}
+
+html.dark-mode .mobile-nav-link {
+  color: var(--cl-gray-700);
+}
+
+html.dark-mode .mobile-nav-link:hover,
+html.dark-mode .mobile-nav-link.is-active {
+  background-color: rgba(var(--cl-primary-rgb), 0.1);
+  color: var(--cl-primary);
+}
+
+html.dark-mode .mobile-actions {
+  border-top-color: var(--cl-gray-200);
+}
+
+/* Footer */
+html.dark-mode .site-footer {
+  background-color: var(--cl-gray-900);
+  color: var(--cl-gray-400);
+}
+
+html.dark-mode .site-footer a {
+  color: var(--cl-secondary);
+}
+
+html.dark-mode .site-footer a:hover {
+  color: var(--cl-primary);
+}
+
+/* Boutons */
+html.dark-mode .variant-outline {
+  border-color: var(--cl-primary);
+  color: var(--cl-primary);
+}
+html.dark-mode .variant-outline:hover:not(.is-disabled):not(.is-loading) {
+  background-color: var(--cl-primary);
+  color: var(--cl-white); /* Le nouveau blanc du dark mode */
+}
+
+html.dark-mode .variant-ghost {
+  color: var(--cl-primary);
+}
+html.dark-mode .variant-ghost:hover:not(.is-disabled):not(.is-loading) {
+  background-color: rgba(var(--cl-primary-rgb), 0.1);
+}
+
+html.dark-mode .enhanced-button:focus-visible {
+  outline-color: var(--cl-primary);
+}
+
+/* Pour les fonds dégradés des boutons, utilisez les nouvelles variables */
+html.dark-mode .variant-primary {
+  background: linear-gradient(135deg, var(--cl-primary) 0%, var(--cl-secondary) 100%);
+}
+html.dark-mode .variant-primary:hover:not(.is-disabled):not(.is-loading) {
+  background: linear-gradient(135deg, var(--cl-secondary) 0%, var(--cl-primary) 100%);
+}
+html.dark-mode .variant-secondary {
+  background-color: var(--cl-secondary);
+}
+html.dark-mode .variant-secondary:hover:not(.is-disabled):not(.is-loading) {
+  background-color: var(--cl-primary);
+}
+html.dark-mode .cta-button {
+  background: linear-gradient(135deg, var(--cl-primary), var(--cl-secondary));
+}
+html.dark-mode .mobile-cta-button {
+  background: linear-gradient(135deg, var(--cl-primary), var(--cl-secondary));
+}
+
+/* Pour le texte highlight sur la page d'accueil */
+html.dark-mode .highlight {
+  background: linear-gradient(90deg, var(--cl-primary), var(--cl-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
