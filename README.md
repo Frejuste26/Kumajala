@@ -2,7 +2,7 @@
 ### La parole qui voyage. La culture qui vit.
 
 <p align="center">
-  <img src="https://placehold.co/200x200/F1890E/FFFFFF?text=KUMAJALA+LOGO" alt="Logo Kumajala" width="200"/>
+  <img src="kumajala.jpg" alt="Logo Kumajala" width="200"/>
 </p>
 
 ---
