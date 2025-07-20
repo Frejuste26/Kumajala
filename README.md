@@ -1,6 +1,10 @@
 # 🌍 KUMAJALA
 ### La parole qui voyage. La culture qui vit.
 
+<p align="center">
+  <img src="https://placehold.co/200x200/F1890E/FFFFFF?text=KUMAJALA+LOGO" alt="Logo Kumajala" width="200"/>
+</p>
+
 ---
 
 ## 📝 Présentation du projet
@@ -24,19 +28,18 @@ Développé dans le cadre de l'AbiHack Hackathon, ce projet vise à valoriser et
 ## 🔧 Technologies utilisées
 
 ### 🟦 Backend
-- **Flask**: Framework web Python pour la construction de l'API REST.
-- **Google Cloud Firestore**: Base de données NoSQL pour le stockage des traductions (ou fichier JSON local en mode développement/fallback).
-- **Gemini API (Google Generative AI)**: Moteur de traduction avancé pour les requêtes non trouvées en base de données.
-- **gTTS (Google Text-to-Speech)**: Bibliothèque Python pour la synthèse vocale.
-- **TensorFlow** (prévu pour futures améliorations IA)
-- **Python 3.x**
-
-### 🟩 Frontend
-- **Vue.js**: Framework JavaScript progressif pour l'interface utilisateur.
-- **Vue Router**: Pour la gestion de la navigation entre les pages.
-- **Vue Composables**: Pour la logique réutilisable et la gestion de l'état (ex: notifications, thème).
-- **Lucide Icons**: Bibliothèque d'icônes légère et personnalisable.
-- **Axios**: Client HTTP basé sur les Promesses pour les requêtes API.
+<p align="center">
+<img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask">
+<img src="https://img.shields.io/badge/Google_Cloud_Firestore-FFCA28?style=for-the-badge&logo=firebase&logoColor=black" alt="Firestore">
+<img src="https://img.shields.io/badge/Gemini_API-6200EE?style=for-the-badge&logo=google-cloud&logoColor=white" alt="Gemini API">
+<img src="https://img.shields.io/badge/gTTS-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="gTTS">
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+<img src="https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white" alt="Vue.js">
+<img src="https://img.shields.io/badge/Vue_Router-42B883?style=for-the-badge&logo=vue&logoColor=white" alt="Vue Router">
+<img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS">
+<img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js">
+<img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white" alt="NPM">
+</p>
 
 ---
 
