@@ -94,9 +94,9 @@ kumajala-frontend/
 
 | Méthode | Endpoint         | Description                               |
 | ------- | ---------------- | ----------------------------------------- |
-| `POST`  | `/api/translate` | Traduit une phrase vers une langue locale |
-| `POST`  | `/api/speak`     | Génère l'audio d'une phrase traduite      |
-| `GET`   | `/api/languages` | Liste des langues supportées              |
+| `POST`  | `/kumajala-api/v1/translate` | Traduit une phrase vers une langue locale |
+| `POST`  | `/kumajala-api/v1/speak`     | Génère l'audio d'une phrase traduite      |
+| `GET`   | `/kumajala-api/v1/languages` | Liste des langues supportées              |
 
 ## Exemple de payload
 
@@ -140,7 +140,7 @@ kumajala-frontend/
 | Backend   | IA / Cloud             | Frontend     |
 | --------- | ---------------------- | ------------ |
 | Flask     | Gemini API / Firestore | Vue.js       |
-| Firestore | Google TTS API         | Tailwind CSS |
+| Firestore | gTTS API         | Vuex/ Axios |
 
 ## 📜 Licence
 
@@ -150,10 +150,10 @@ Ce projet est open-source sous licence MIT.
 
 | Nom       | Rôle                       |
 | ----------| -------------------------- |
-|(à décider)| Team Leader / Backend API  |
-|(à décider)| Backend Firestore / Gemini |
-|(à décider)| Frontend Vue / UX          |
-|(à décider)| Frontend Vue / Intégration |
+|Kei Fréjuste| Team Leader / Backend API  |
+|Kei Fréjuste & Nango Ebrotie Vital| Backend Firestore / Gemini |
+|Sanné-Tia Chrys| Frontend Vue / UX          |
+|Kei Fréjuste | Frontend Vue / Intégration |
 
 ## 💡 Vision de KUMAJALA
 
