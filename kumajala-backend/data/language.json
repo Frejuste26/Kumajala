@@ -1,0 +1,124 @@
+{
+  "fr": {
+    "bonjour": {
+      "bété": "Akwaba",
+      "baoulé": "Mo ho",
+      "mooré": "Ne y windga",
+      "agni": "Agni oh"
+    },
+    "comment allez-vous?": {
+      "bété": "Bi ye né?",
+      "baoulé": "Wo ho tè n?",
+      "mooré": "Fo laafi?",
+      "agni": "ounti sê?"
+    },
+    "merci": {
+      "bété": "Akpé",
+      "baoulé": "Mo",
+      "mooré": "Barika",
+      "agni": "Mo"
+    },
+    "au revoir": {
+      "bété": "Kan na",
+      "baoulé": "Kan na",
+      "mooré": "Nan kã pãalem",
+      "agni": "Yété onou"
+    },
+    "oui": {
+      "bété": "Yoo",
+      "baoulé": "Yoo",
+      "mooré": "Yãa",
+      "agni": "Aoo"
+    },
+    "non": {
+      "bété": "Kou",
+      "baoulé": "Kou",
+      "mooré": "Ayi",
+      "agni": "N'an"
+    },
+    "bonne nuit": {
+      "bété": "Dè wèlè",
+      "baoulé": "Dè wèlè",
+      "mooré": "Sẽn-doogo",
+      "agni": "Anwielé"
+    },
+    "je m'appelle": {
+      "bété": "Man yi tɔ",
+      "baoulé": "Man yi tɔ",
+      "mooré": "Ma yiire",
+      "agni": "Bé flêmi"
+    },
+    "où est": {
+      "bété": "Kpá nyɛ",
+      "baoulé": "Kpá nyɛ",
+      "mooré": "Fo bee",
+      "agni": "Wan ye?"
+    },
+    "combien": {
+      "bété": "Kpé nyɛ",
+      "baoulé": "Kpé nyɛ",
+      "mooré": "Kpé nyɛ",
+      "agni": "Gnê?"
+    },
+    "s'il vous plaît": {
+      "bété": "Akpé o",
+      "baoulé": "Yaki",
+      "mooré": "Tõnd pa",
+      "agni": "Yaki"
+    },
+    "excusez-moi": {
+      "bété": "Pardon",
+      "baoulé": "Yaki",
+      "mooré": "Tõnd wii",
+      "agni": "Yaki"
+    },
+    "ça va": {
+      "bété": "Bi dè",
+      "baoulé": "Wo dè",
+      "mooré": "A laafi",
+      "agni": "Aka ya?"
+    },
+    "boire": {
+      "bété": "Nyɛ",
+      "baoulé": "Nyɛ",
+      "mooré": "Nyu",
+      "agni": "Nyu"
+    },
+    "manger": {
+      "bété": "Dyi",
+      "baoulé": "Dyi",
+      "mooré": "Di",
+      "agni": "Di"
+    },
+    "dormir": {
+      "bété": "Dè",
+      "baoulé": "Dè",
+      "mooré": "Sẽn",
+      "agni": "Dè"
+    },
+    "maison": {
+      "bété": "Kpè",
+      "baoulé": "Kpè",
+      "mooré": "Yiri",
+      "agni": "Aso"
+    },
+    "eau": {
+      "bété": "Nyɛ",
+      "baoulé": "Nyɛ",
+      "mooré": "Koom",
+      "agni": "Nsué"
+    },
+    "argent": {
+      "bété": "Kpɛ",
+      "baoulé": "Kpɛ",
+      "mooré": "Galaga",
+      "agni": "Sika"
+    },
+    "travail": {
+      "bété": "Wɔ",
+      "baoulé": "Wɔ",
+      "mooré": "Tuma",
+      "agni": "Adwuma"
+    }
+  }
+}
