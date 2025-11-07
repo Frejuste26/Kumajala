@@ -1,0 +1,102 @@
+version: '3.8'
+
+# ==========================================
+# KUMAJALA - Docker Compose pour Développement
+# ==========================================
+
+services:
+  # Service Backend Flask
+  backend:
+    build:
+      context: ./kumajala-backend
+      dockerfile: Dockerfile
+    container_name: kumajala-backend
+    ports:
+      - "5000:5000"
+    environment:
+      # Flask Configuration
+      - FLASK_ENV=development
+      - FLASK_HOST=0.0.0.0
+      - FLASK_PORT=5000
+      - SECRET_KEY=dev-secret-key-change-in-production
+      
+      # CORS - Autoriser le frontend local et Vercel
+      - CORS_ORIGINS=http://localhost:5173,http://localhost:3000,https://kumajala.vercel.app,https://*.vercel.app
+      
+      # Gemini API (à remplacer par votre clé)
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      
+      # Google Cloud (optionnel)
+      # - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials/serviceAccountKey.json
+      
+      # Cache Configuration
+      - CACHE_TTL=3600
+      - AUDIO_CACHE_SIZE=100
+      
+      # Logging
+      - LOG_LEVEL=INFO
+      - LOG_FILE=/app/logs/kumajala.log
+      
+      # Storage
+      - STORAGE_MODE=local
+      - LOCAL_DATA_PATH=/app/data/language.json
+    
+    volumes:
+      # Code source (pour hot-reload en dev)
+      - ./kumajala-backend:/app
+      
+      # Données persistantes
+      - backend-data:/app/data
+      
+      # Logs persistants
+      - backend-logs:/app/logs
+      
+      # Credentials Google Cloud (si nécessaire)
+      # - ./serviceAccountKey.json:/app/credentials/serviceAccountKey.json:ro
+    
+    networks:
+      - kumajala-network
+    
+    restart: unless-stopped
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Service Frontend Vue.js (optionnel pour dev local)
+  frontend:
+    image: node:18-alpine
+    container_name: kumajala-frontend
+    working_dir: /app
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=development
+      - VITE_API_BASE_URL=http://localhost:5000/kumajala-api/v1
+    volumes:
+      - ./kumajala-frontend:/app
+      - frontend-node-modules:/app/node_modules
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+    networks:
+      - kumajala-network
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+# Volumes pour la persistance des données
+volumes:
+  backend-data:
+    name: kumajala-backend-data
+  backend-logs:
+    name: kumajala-backend-logs
+  frontend-node-modules:
+    name: kumajala-frontend-node-modules
+
+# Réseau pour la communication inter-containers
+networks:
+  kumajala-network:
+    name: kumajala-network
+    driver: bridge
