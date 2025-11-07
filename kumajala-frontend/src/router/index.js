@@ -3,6 +3,7 @@ import Home from '@/views/Home.vue';
 import Translator from '@/views/Translator.vue';
 import Setting from '@/views/Setting.vue'; 
 import About from '@/views/About.vue';
+import History from '@/views/History.vue';
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/about',
     name: 'About',
     component: About,
+  },
+  {
+    path: '/history',
+    name: 'History',
+    component: History,
   },
 ];
 

@@ -110,14 +110,13 @@ export default {
       default: 'Get Started'
     },
 
-    // Icônes (peut être un nom de composant ou un composant importé)
     leftIcon: {
-      type: [String, Object],
+      type: [String, Object, Function],
       default: null
     },
 
     rightIcon: {
-      type: [String, Object],
+      type: [String, Object, Function],
       default: null
     },
 
